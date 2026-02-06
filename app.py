@@ -274,17 +274,27 @@ html("""
         document.getElementById("pink").style.display = "none";
     }
 
-    function heart() {
-        const h = document.createElement("div");
-        h.innerHTML = "💗";
-        h.style.position = "fixed";
-        h.style.left = Math.random() * 100 + "vw";
-        h.style.bottom = "0";
-        h.style.fontSize = "22px";
-        h.style.animation = "float 2s ease-out forwards";
-        document.body.appendChild(h);
-        setTimeout(() => h.remove(), 2000);
-    }
+    
+    <script>
+function heart() {
+    const h = document.createElement("div");
+    h.innerHTML = "💗";
+    h.style.position = "fixed";
+
+    /* Start slightly ABOVE bottom so it's always visible */
+    h.style.left = Math.random() * 90 + "vw";
+    h.style.bottom = "60px";
+
+    h.style.fontSize = "22px";
+    h.style.opacity = "0.9";
+    h.style.pointerEvents = "none";
+    h.style.animation = "floatUp 2.6s ease-out forwards";
+
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 2600);
+}
+</script>
+
 
     const style = document.createElement("style");
     style.innerHTML = `
@@ -296,4 +306,5 @@ html("""
     document.head.appendChild(style);
 </script>
 """, height=1000)
+
 
