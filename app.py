@@ -5,10 +5,15 @@ st.set_page_config(page_title="Doctor Please Help 🩺💗", layout="centered")
 
 html("""
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         background: linear-gradient(180deg, #ff69b4, #ff85c1);
         font-family: "Segoe UI", sans-serif;
+        -webkit-tap-highlight-color: transparent;
     }
 
     .screen {
@@ -17,6 +22,7 @@ html("""
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding: 20px;
     }
 
     .active {
@@ -25,58 +31,71 @@ html("""
 
     .card {
         background: white;
-        padding: 40px;
-        border-radius: 26px;
-        width: 420px;
+        padding: 28px 22px;
+        border-radius: 22px;
+        width: 100%;
+        max-width: 420px;
         text-align: center;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        box-shadow: 0 16px 36px rgba(0,0,0,0.18);
     }
 
     h2 {
         color: #ff2f92;
         margin-bottom: 12px;
+        font-size: 22px;
     }
 
     p, li {
         color: #444;
-        font-size: 18px;
+        font-size: 16px;
+        line-height: 1.5;
     }
 
     ul {
         text-align: left;
-        padding-left: 20px;
+        padding-left: 18px;
+        margin: 10px 0;
     }
 
     .buttons {
-        margin-top: 26px;
+        margin-top: 20px;
         display: flex;
-        gap: 14px;
+        gap: 12px;
         flex-wrap: wrap;
         justify-content: center;
+        width: 100%;
+        max-width: 420px;
     }
 
     button {
-        padding: 12px 22px;
+        padding: 14px 22px;
         border-radius: 14px;
         border: none;
         background: linear-gradient(135deg, #ff69b4, #ff85c1);
         color: white;
-        font-size: 16px;
+        font-size: 15px;
         font-weight: 600;
         cursor: pointer;
-        box-shadow: 0 8px 18px rgba(255,105,180,0.6);
-        transition: transform 0.2s ease;
+        box-shadow: 0 6px 16px rgba(255,105,180,0.55);
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+        min-width: 120px;
     }
 
-    button:hover {
-        transform: translateY(-2px);
+    button:active {
+        transform: scale(0.97);
+        box-shadow: 0 4px 12px rgba(255,105,180,0.4);
     }
 
     .checkbox {
         text-align: left;
         margin-top: 10px;
         color: #444;
-        font-size: 16px;
+        font-size: 15px;
+    }
+
+    .checkbox input {
+        margin-right: 8px;
+        transform: scale(1.1);
     }
 
     .pink-screen {
@@ -89,18 +108,36 @@ html("""
         align-items: center;
         color: white;
         text-align: center;
+        padding: 24px;
+        z-index: 9999;
     }
 
     .pink-screen h1 {
-        font-size: 34px;
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+
+    .pink-screen p {
+        font-size: 16px;
+        opacity: 0.95;
     }
 
     .retry {
-        margin-top: 30px;
+        margin-top: 26px;
         background: white;
         color: #ff2f92;
+        padding: 14px 26px;
+        border-radius: 16px;
+        font-weight: 700;
+    }
+
+    @media (max-width: 360px) {
+        h2 { font-size: 20px; }
+        p, li { font-size: 15px; }
+        button { font-size: 14px; }
     }
 </style>
+
 
 <div id="p1" class="screen active">
     <div class="card">
@@ -259,3 +296,4 @@ html("""
     document.head.appendChild(style);
 </script>
 """, height=1000)
+
