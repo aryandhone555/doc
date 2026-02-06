@@ -2,7 +2,11 @@ import streamlit as st
 from streamlit.components.v1 import html
 
 st.set_page_config(page_title="Doctor Please Help 🩺💗", layout="centered")
-
+st.set_page_config(
+    page_title="Doctor Please Help 🩺💗",
+    page_icon="favicon.ico",
+    layout="centered"
+)
 html("""
 <style>
     * {
@@ -296,3 +300,4 @@ html("""
     document.head.appendChild(style);
 </script>
 """, height=1000)
+
